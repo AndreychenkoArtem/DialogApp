@@ -7,6 +7,9 @@ using DialogTDD.Portable.Authorization.Auth_Presenter.Interfaces;
 using DialogTDD.Portable.Authorization.Auth_Interactor.Interfaces;
 using DialogTDD.Portable.Authorization.Auth_Interactor;
 using DialogTDD.Portable.Data.Interfaces;
+using System.Reflection;
+using DialogTDD.Portable.Data;
+using DialogTDD.Portable.Authorization.Auth_View.Interfaces;
 
 namespace DialogTDD.Test.Authorization_Test.Interactor_Test
 {
@@ -16,7 +19,7 @@ namespace DialogTDD.Test.Authorization_Test.Interactor_Test
     [TestFixture]
     public class Auth_Interactor_Test
     {
-       
+
         [Test]
         public void Constructor_Test()
         {
@@ -44,6 +47,7 @@ namespace DialogTDD.Test.Authorization_Test.Interactor_Test
 
             IAuth_Interactor auth_Interactor = new Auth_Interactor(mockDataWrap.Object);
             mockAuth_Presenter.Setup(a => a.GoToChat());
+            auth_Interactor.Auth_Presenter = mockAuth_Presenter.Object;
             auth_Interactor.SignInPressed();
             mockAuth_Presenter.Verify(a => a.GoToChat(), Times.Once);
         }
@@ -57,8 +61,21 @@ namespace DialogTDD.Test.Authorization_Test.Interactor_Test
             IAuth_Interactor auth_Interactor = new Auth_Interactor(mockDataWrap.Object);
 
             mockAuth_Presenter.Setup(a => a.GoToRegistration());
+            auth_Interactor.Auth_Presenter = mockAuth_Presenter.Object;
             auth_Interactor.RegistrationPressed();
             mockAuth_Presenter.Verify(a => a.GoToRegistration(), Times.Once);
         }
+
+        [Test]
+        public void OnSignInPressed_Event_Test()
+        {
+            Mock<IDataWrap> mockDataWrap = new Mock<IDataWrap>(MockBehavior.Strict);
+            Mock<IAuth_Presenter> mockAuth_Presenter = new Mock<IAuth_Presenter>(MockBehavior.Strict);
+
+            IAuth_Interactor auth_Interactor = new Auth_Interactor(mockDataWrap.Object);
+            mockAuth_Presenter.Setup(a => a.GoToChat());
+            mockAuth_Presenter.Verify(a => a.GoToChat(), Times.Once);
+        }
+
     }
 }

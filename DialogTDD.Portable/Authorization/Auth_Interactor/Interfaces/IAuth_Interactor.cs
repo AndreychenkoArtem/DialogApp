@@ -1,17 +1,16 @@
 ﻿using DialogTDD.Portable.Authorization.Auth_Presenter.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DialogTDD.Portable.Data.Interfaces;
 
 namespace DialogTDD.Portable.Authorization.Auth_Interactor.Interfaces
 {
     public interface IAuth_Interactor
     {
-        IAuth_Presenter Auth_Presenter { get; set; }
+        IAuth_Presenter Auth_Presenter { set; }
 
-        void SignInPressed();
-        void RegistrationPressed();
+        void SignInPressed(); //Test+
+        void RegistrationPressed(); //Test+
+
+        IAuth_Entity GetDataFromUser(string login, string password);
+
     }
 }

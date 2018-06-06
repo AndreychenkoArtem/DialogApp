@@ -67,7 +67,9 @@
   <ItemGroup>
     <Compile Include="Authorization_Test\Interactor_Test\Auth_Interactor_Test.cs" />
     <Compile Include="Authorization_Test\Presenter_Test\Auth_Presenter_Test.cs" />
+    <Compile Include="Authorization_Test\Presenter_Test\Presenter_Localization_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validate_Test\Validate_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
