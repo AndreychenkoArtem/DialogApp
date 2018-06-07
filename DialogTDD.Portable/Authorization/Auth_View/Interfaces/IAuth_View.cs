@@ -14,5 +14,6 @@ namespace DialogTDD.Portable.Authorization.Auth_View.Interfaces
         void SetLabelPasswordText(string LabelPassword); //Test+
         void SetButtonSignInText(string buttonSignInText); //Test+
         void SetButtonRegistrationText(string buttonRegistrationText); //Test+
+        void SetExeptionMessage(string message);
     }
 }

@@ -29,12 +29,16 @@ namespace DialogTDD.Android.Router
 
         public void GoChatPage()
         {
-            throw new NotImplementedException();
+            Intent intent = new Intent(_context, typeof(ChatActivity));
+            //intent.PutExtra(ChatActivity.IdKey, id);
+            _context.StartActivity(intent);
         }
 
         public void GoRegistrationPage()
         {
-            throw new NotImplementedException();
+            Intent intent = new Intent(_context, typeof(RegistrationActivity));
+            //intent.PutExtra(ChatActivity.IdKey, id);
+            _context.StartActivity(intent);
         }
     }
 }

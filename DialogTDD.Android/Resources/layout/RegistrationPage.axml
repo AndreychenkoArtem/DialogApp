@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <TextView
+      android:id="@+id/textView_registration"
+      android:layout_width="match_parent"
+      android:layout_height="40dp"
+      android:layout_alignParentStart="true"
+      android:layout_alignParentTop="true"
+      android:layout_marginTop="10dp"
+      android:layout_marginStart="2dp"
+      android:textSize="30dp"
+      android:textAlignment="center"
+      android:textColor="#00BFFF"
+      android:text="Welcome to Registration Page" />
+
+</RelativeLayout>

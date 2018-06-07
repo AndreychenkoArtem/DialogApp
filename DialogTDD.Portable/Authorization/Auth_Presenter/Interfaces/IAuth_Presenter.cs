@@ -8,15 +8,16 @@ namespace DialogTDD.Portable.Authorization.Auth_Presenter.Interfaces
 {
     public interface IAuth_Presenter
     {
-        event Action OnSignInPressed;
+        event Action<string, string> OnSignInPressed;
         event Action OnRegistrationPressed;
-        event Action OnLocalizationChangePressed;
+        
 
         IRouter Router { get; set; }
         IAuth_View Auth_View { get; set; }
-        ILocalization localization { get; }
+        ILocalization Localization { set; }
 
         void GoToChat(); //Test+
         void GoToRegistration(); //Test+
+        void ErrorValidation();
     }
 }

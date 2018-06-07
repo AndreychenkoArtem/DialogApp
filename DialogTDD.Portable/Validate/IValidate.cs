@@ -6,7 +6,7 @@ namespace DialogTDD.Portable.Validate
 {
     public interface IValidate
     {
-        string ValidateLogin(string login);
-        string ValidatePassword(string password);
+        ValidateLoginExeption ValidateLogin(string login);
+        ValidatePasswordExeption ValidatePassword(string password);
     }
 }

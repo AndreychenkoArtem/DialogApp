@@ -2,6 +2,7 @@
 using DialogTDD.Portable.Authorization.Auth_Presenter.Interfaces;
 using DialogTDD.Portable.Data;
 using DialogTDD.Portable.Data.Interfaces;
+using DialogTDD.Portable.Validate;
 using System;
 
 
@@ -9,13 +10,13 @@ namespace DialogTDD.Portable.Authorization.Auth_Interactor
 {
     public class Auth_Interactor : IAuth_Interactor
     {
+        IValidate validate = new ValidateLoginPassword();
         private IAuth_Presenter _auth_Presenter;
         private IDataWrap _dataWrap;
 
         public Auth_Interactor(IDataWrap data)
         {
-            throw new NotImplementedException();
-            // _dataWrap = data?? throw new ArgumentNullException();
+            _dataWrap = data?? throw new ArgumentNullException();
         }
 
         public IAuth_Presenter Auth_Presenter
@@ -34,34 +35,39 @@ namespace DialogTDD.Portable.Authorization.Auth_Interactor
             }
         }
 
-
-
         public void RegistrationPressed()
         {
-            throw new NotImplementedException();
-            //_auth_Presenter.GoToRegistration();
+            _auth_Presenter.GoToRegistration();
         }
 
-        private bool Validation()
+        private bool Validation(string login, string password)
         {
-            throw new NotImplementedException();
-            //return true;
+            if(validate.ValidateLogin(login) == ValidateLoginExeption.Correct && validate.ValidatePassword(password) == ValidatePasswordExeption.Correct)
+            {
+                return true;
+            }
+            return false;
         }
 
 
-        public void SignInPressed()
+        public void SignInPressed(string login, string password)
         {
-            throw new NotImplementedException();
-            //_auth_Presenter.GoToChat();
+            if(Validation(login, password))
+            {
+                _auth_Presenter.GoToChat();
+            }
+            else
+            {
+                _auth_Presenter.ErrorValidation();
+            }
         }
 
         public IAuth_Entity GetDataFromUser(string login, string password)
         {
-            //string loginEntity = login;
-            //string passwordEntity = password;
-            //IAuth_Entity auth_EntityFromUser = new Auth_Entity(loginEntity, passwordEntity);
-            //return auth_EntityFromUser;
-            throw new NotImplementedException();
+            string loginEntity = login;
+            string passwordEntity = password;
+            IAuth_Entity auth_EntityFromUser = new Auth_Entity(loginEntity, passwordEntity);
+            return auth_EntityFromUser;
         }
     }
 }

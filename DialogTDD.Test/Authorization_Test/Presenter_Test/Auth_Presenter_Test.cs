@@ -74,47 +74,43 @@ namespace DialogTDD.Test.Authorization_Test.Presenter_Test
 
             mockRouter.Setup(a => a.GoRegistrationPage());
             mockAuth_View.Raise(a => a.OnRegistrationClick+=null);
-           // auth_Presenter.GoToRegistration();
+            auth_Presenter.GoToRegistration();
             mockRouter.Verify(a => a.GoRegistrationPage(), Times.Once);
 
         }
 
-        [Test]
-        public void OnSignInPressed_Test()
-        {
-            Mock<IAuth_View> mockAuth_View = new Mock<IAuth_View>(MockBehavior.Strict);
-            Mock<IRouter> mockRouter = new Mock<IRouter>(MockBehavior.Strict);
+        //Узнать как проверить вызывается ли приватный метод в приватном методе!!!
+        //[Test]
+        //public void OnLocalizationChangePressed_Test()
+        //{
+        //    Mock<IAuth_View> mockAuth_View = new Mock<IAuth_View>(MockBehavior.Strict);
+        //    Mock<ILocalization> mockLocalization = new Mock<ILocalization>(MockBehavior.Loose);
+        //    Mock<IRouter> mockRouter = new Mock<IRouter>(MockBehavior.Strict);
 
-            IAuth_Presenter auth_Presenter = new Auth_Presenter(mockRouter.Object, mockAuth_View.Object);
+        //    IAuth_Presenter auth_Presenter = new Auth_Presenter(mockRouter.Object, mockAuth_View.Object);
 
-            mockRouter.Setup(a => a.GoChatPage());
-            mockAuth_View.Raise(a => a.OnSignInClick += null);
-             //auth_Presenter.GoToChat();
-            mockRouter.Verify(a => a.GoChatPage(), Times.Once);
+        //    mockAuth_View.Raise(a => a.ChangeLocalizationClick += null);
 
-        }
+        //    auth_Presenter.Localization = mockLocalization.Object;
 
-        [Test]
-        public void OnLocalizationChangePressed_Test()
-        {
-            Mock<IAuth_View> mockAuth_View = new Mock<IAuth_View>(MockBehavior.Strict);
-            Mock<IRouter> mockRouter = new Mock<IRouter>(MockBehavior.Strict);
+        //    object[] obj = new object[]
+        //    {
+        //        mockLocalization.Object
+        //    };
+        //    MethodInfo localChange = typeof(Auth_Presenter).GetMethod("SetLocalization", BindingFlags.Instance | BindingFlags.NonPublic);
+        //    localChange.Invoke(auth_Presenter, obj);
 
-            IAuth_Presenter auth_Presenter = new Auth_Presenter(mockRouter.Object, mockAuth_View.Object);
 
-            mockRouter.Setup(a => a.GoChatPage());
-            mockAuth_View.Raise(a => a.OnSignInClick += null);
-            //auth_Presenter.GoToChat();
-            mockRouter.Verify(a => a.GoChatPage(), Times.Once);
+        //    mockAuth_View.Verify(a => a.SetMainLabelText(It.IsAny<string>()), Times.Once);
 
-        }
+        //}
 
         [Test]
         public void SetMainLabelText_test()
         {
             Mock<IAuth_View> mockAuth_View = new Mock<IAuth_View>(MockBehavior.Strict);
             Mock<IRouter> mockRouter = new Mock<IRouter>(MockBehavior.Strict);
-            Mock<ILocalization> mockLocalization = new Mock<ILocalization>(MockBehavior.Strict);
+            Mock<ILocalization> mockLocalization = new Mock<ILocalization>(MockBehavior.Loose);
             IAuth_Presenter auth_Presenter = new Auth_Presenter(mockRouter.Object, mockAuth_View.Object);
 
             mockAuth_View.Setup(a => a.SetMainLabelText(It.IsAny<string>()));
@@ -122,7 +118,9 @@ namespace DialogTDD.Test.Authorization_Test.Presenter_Test
             mockAuth_View.Setup(a => a.SetLabelPasswordText(It.IsAny<string>()));
             mockAuth_View.Setup(a => a.SetButtonSignInText(It.IsAny<string>()));
             mockAuth_View.Setup(a => a.SetButtonRegistrationText(It.IsAny<string>()));
+            mockAuth_View.Setup(a => a.SetExeptionMessage(It.IsAny<string>()));
 
+            auth_Presenter.Localization = mockLocalization.Object;
             object[] obj = new object[]
             {
                 mockLocalization.Object
@@ -138,7 +136,7 @@ namespace DialogTDD.Test.Authorization_Test.Presenter_Test
         {
             Mock<IAuth_View> mockAuth_View = new Mock<IAuth_View>(MockBehavior.Strict);
             Mock<IRouter> mockRouter = new Mock<IRouter>(MockBehavior.Strict);
-            Mock<ILocalization> mockLocalization = new Mock<ILocalization>(MockBehavior.Strict);
+            Mock<ILocalization> mockLocalization = new Mock<ILocalization>(MockBehavior.Loose);
             IAuth_Presenter auth_Presenter = new Auth_Presenter(mockRouter.Object, mockAuth_View.Object);
 
             mockAuth_View.Setup(a => a.SetMainLabelText(It.IsAny<string>()));
@@ -146,6 +144,9 @@ namespace DialogTDD.Test.Authorization_Test.Presenter_Test
             mockAuth_View.Setup(a => a.SetLabelPasswordText(It.IsAny<string>()));
             mockAuth_View.Setup(a => a.SetButtonSignInText(It.IsAny<string>()));
             mockAuth_View.Setup(a => a.SetButtonRegistrationText(It.IsAny<string>()));
+            mockAuth_View.Setup(a => a.SetExeptionMessage(It.IsAny<string>()));
+
+            auth_Presenter.Localization = mockLocalization.Object;
 
             object[] obj = new object[]
             {
@@ -162,7 +163,7 @@ namespace DialogTDD.Test.Authorization_Test.Presenter_Test
         {
             Mock<IAuth_View> mockAuth_View = new Mock<IAuth_View>(MockBehavior.Strict);
             Mock<IRouter> mockRouter = new Mock<IRouter>(MockBehavior.Strict);
-            Mock<ILocalization> mockLocalization = new Mock<ILocalization>(MockBehavior.Strict);
+            Mock<ILocalization> mockLocalization = new Mock<ILocalization>(MockBehavior.Loose);
             IAuth_Presenter auth_Presenter = new Auth_Presenter(mockRouter.Object, mockAuth_View.Object);
 
             mockAuth_View.Setup(a => a.SetMainLabelText(It.IsAny<string>()));
@@ -170,6 +171,9 @@ namespace DialogTDD.Test.Authorization_Test.Presenter_Test
             mockAuth_View.Setup(a => a.SetLabelPasswordText(It.IsAny<string>()));
             mockAuth_View.Setup(a => a.SetButtonSignInText(It.IsAny<string>()));
             mockAuth_View.Setup(a => a.SetButtonRegistrationText(It.IsAny<string>()));
+            mockAuth_View.Setup(a => a.SetExeptionMessage(It.IsAny<string>()));
+
+            auth_Presenter.Localization = mockLocalization.Object;
 
             object[] obj = new object[]
             {
@@ -186,7 +190,7 @@ namespace DialogTDD.Test.Authorization_Test.Presenter_Test
         {
             Mock<IAuth_View> mockAuth_View = new Mock<IAuth_View>(MockBehavior.Strict);
             Mock<IRouter> mockRouter = new Mock<IRouter>(MockBehavior.Strict);
-            Mock<ILocalization> mockLocalization = new Mock<ILocalization>(MockBehavior.Strict);
+            Mock<ILocalization> mockLocalization = new Mock<ILocalization>(MockBehavior.Loose);
             IAuth_Presenter auth_Presenter = new Auth_Presenter(mockRouter.Object, mockAuth_View.Object);
 
             mockAuth_View.Setup(a => a.SetMainLabelText(It.IsAny<string>()));
@@ -194,6 +198,9 @@ namespace DialogTDD.Test.Authorization_Test.Presenter_Test
             mockAuth_View.Setup(a => a.SetLabelPasswordText(It.IsAny<string>()));
             mockAuth_View.Setup(a => a.SetButtonSignInText(It.IsAny<string>()));
             mockAuth_View.Setup(a => a.SetButtonRegistrationText(It.IsAny<string>()));
+            mockAuth_View.Setup(a => a.SetExeptionMessage(It.IsAny<string>()));
+
+            auth_Presenter.Localization = mockLocalization.Object;
 
             object[] obj = new object[]
             {
@@ -210,7 +217,7 @@ namespace DialogTDD.Test.Authorization_Test.Presenter_Test
         {
             Mock<IAuth_View> mockAuth_View = new Mock<IAuth_View>(MockBehavior.Strict);
             Mock<IRouter> mockRouter = new Mock<IRouter>(MockBehavior.Strict);
-            Mock<ILocalization> mockLocalization = new Mock<ILocalization>(MockBehavior.Strict);
+            Mock<ILocalization> mockLocalization = new Mock<ILocalization>(MockBehavior.Loose);
             IAuth_Presenter auth_Presenter = new Auth_Presenter(mockRouter.Object, mockAuth_View.Object);
 
             mockAuth_View.Setup(a => a.SetMainLabelText(It.IsAny<string>()));
@@ -218,6 +225,9 @@ namespace DialogTDD.Test.Authorization_Test.Presenter_Test
             mockAuth_View.Setup(a => a.SetLabelPasswordText(It.IsAny<string>()));
             mockAuth_View.Setup(a => a.SetButtonSignInText(It.IsAny<string>()));
             mockAuth_View.Setup(a => a.SetButtonRegistrationText(It.IsAny<string>()));
+            mockAuth_View.Setup(a => a.SetExeptionMessage(It.IsAny<string>()));
+
+            auth_Presenter.Localization = mockLocalization.Object;
 
             object[] obj = new object[]
             {

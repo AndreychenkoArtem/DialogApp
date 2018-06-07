@@ -7,7 +7,7 @@ namespace DialogTDD.Portable.Authorization.Auth_Interactor.Interfaces
     {
         IAuth_Presenter Auth_Presenter { set; }
 
-        void SignInPressed(); //Test+
+        void SignInPressed(string login, string password); //Test+
         void RegistrationPressed(); //Test+
 
         IAuth_Entity GetDataFromUser(string login, string password);

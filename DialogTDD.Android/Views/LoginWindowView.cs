@@ -14,7 +14,7 @@ using DialogTDD.Portable.Authorization.Auth_View.Interfaces;
 
 namespace DialogTDD.Android.Views
 {
-    public class LoginWindowView : RelativeLayout, IAuth_View
+    public class LoginWindowView : RelativeLayout
     {
         private LayoutInflater _layoutInflater;
 
@@ -43,35 +43,6 @@ namespace DialogTDD.Android.Views
             base.OnFinishInflate();
             _layoutInflater = LayoutInflater.From(Context);
             _layoutInflater.Inflate(Resource.Layout.Main, this, true);
-        }
-
-        public event Action<string, string> OnSignInClick;
-        public event Action OnRegistrationClick;
-        public event Action<bool> ChangeLocalizationClick;
-
-        public void SetButtonRegistrationText(string buttonRegistrationText)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetButtonSignInText(string buttonSignInText)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetLabelLoginText(string labelLogin)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetLabelPasswordText(string LabelPassword)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetMainLabelText(string mainLabel)
-        {
-            throw new NotImplementedException();
         }
     }
 }

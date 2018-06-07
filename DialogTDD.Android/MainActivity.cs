@@ -15,36 +15,55 @@ using DialogTDD.Portable.Authorization.Auth_Interactor;
 
 namespace DialogTDD.Android
 {
+    
     [Activity(Label = "DialogTDD.Android", MainLauncher = true)]
     public class MainActivity : Activity, IAuth_View
     {
+
         public event Action<string, string> OnSignInClick;
         public event Action OnRegistrationClick;
         public event Action<bool> ChangeLocalizationClick;
 
         public void SetButtonRegistrationText(string buttonRegistrationText)
         {
-            throw new NotImplementedException();
+            Button registrationButton = FindViewById<Button>(Resource.Id.button_registration);
+            registrationButton.Text = buttonRegistrationText;
+            registrationButton.Invalidate();
         }
 
         public void SetButtonSignInText(string buttonSignInText)
         {
-            throw new NotImplementedException();
+            Button signInButton = FindViewById<Button>(Resource.Id.button_signIn);
+            signInButton.Text = buttonSignInText;
+            signInButton.Invalidate();
+        }
+
+        public void SetExeptionMessage(string message)
+        {
+            TextView textViewExeption = FindViewById<TextView>(Resource.Id.textViewException);
+            textViewExeption.Text = message;
+            textViewExeption.Invalidate();
         }
 
         public void SetLabelLoginText(string labelLogin)
         {
-            throw new NotImplementedException();
+            TextView loginLabel = FindViewById<TextView>(Resource.Id.textView_username);
+            loginLabel.Text = labelLogin;
+            loginLabel.Invalidate();
         }
 
-        public void SetLabelPasswordText(string LabelPassword)
+        public void SetLabelPasswordText(string labelPassword)
         {
-            throw new NotImplementedException();
+            TextView passwordLabel = FindViewById<TextView>(Resource.Id.textView_password);
+            passwordLabel.Text = labelPassword;
+            passwordLabel.Invalidate();
         }
 
-        public void SetMainLabelText(string mainLabel)
+        public void SetMainLabelText(string mainLabelText)
         {
-            throw new NotImplementedException();
+            TextView mainLabel = FindViewById<TextView>(Resource.Id.textView_main);
+            mainLabel.Text = mainLabelText;
+            mainLabel.Invalidate();
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -53,27 +72,52 @@ namespace DialogTDD.Android
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
-            var loginWindowView = FindViewById<LoginWindowView>(Resource.Id.loginWindow);
+            //var loginWindowView = FindViewById<RelativeLayout>(Resource.Id.loginWindow);
+
+            EditText loginEditTextWindow = FindViewById<EditText>(Resource.Id.editText_user);
+            EditText passwordEditTextWindow = FindViewById<EditText>(Resource.Id.editText_password);
+            Switch switchButton = FindViewById<Switch>(Resource.Id.change_localization);
+            Button signInButton = FindViewById<Button>(Resource.Id.button_signIn);
+            Button registrationButton = FindViewById<Button>(Resource.Id.button_registration);
+            TextView mainLabel= FindViewById<TextView>(Resource.Id.textView_main);
+            TextView loginLabel = FindViewById<TextView>(Resource.Id.textView_username);
+            TextView passwordLabel= FindViewById<TextView>(Resource.Id.textView_password);
+            TextView textViewExeption = FindViewById<TextView>(Resource.Id.textViewException);
+
 
             IDataWrap dataWrap = new DataWrap();
             IRouter router = new AndroidRouter(this);
-            IAuth_Presenter auth_Presenter = new Auth_Presenter(router, loginWindowView);
+            IAuth_Presenter auth_Presenter = new Auth_Presenter(router, this);
             auth_Presenter.Router = router;
 
             IAuth_Interactor auth_Intarector = new Auth_Interactor(dataWrap);
             auth_Intarector.Auth_Presenter = auth_Presenter;
 
-            var d = FindViewById<Switch>(Resource.Id.change_localization);
-            d.Click += ((s, e) =>
+            
+            switchButton.Click += ((o, e) =>
             {
-                var h = (Switch)s;
-
-                ChangeLocalizationClick?.Invoke(h.Checked);
-
-
+                var click = (Switch)o;
+                ChangeLocalizationClick?.Invoke(click.Checked);
             });
 
+            registrationButton.Click += ((o, e) =>
+            {
+                OnRegistrationClick?.Invoke();
+            });
 
+            signInButton.Click += ((o, e) =>
+            {
+                string login = loginEditTextWindow.Text;
+                string password = passwordEditTextWindow.Text;
+                OnSignInClick?.Invoke(login, password);
+            });
+
+        }
+        protected override void OnResume()
+        {
+            base.OnResume();
+            TextView textViewExeption = FindViewById<TextView>(Resource.Id.textViewException);
+            textViewExeption.Text = "";
         }
     }
 }
