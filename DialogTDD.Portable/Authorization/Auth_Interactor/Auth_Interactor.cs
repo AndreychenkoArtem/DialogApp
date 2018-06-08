@@ -62,12 +62,12 @@ namespace DialogTDD.Portable.Authorization.Auth_Interactor
             }
         }
 
-        public IAuth_Entity GetDataFromUser(string login, string password)
-        {
-            string loginEntity = login;
-            string passwordEntity = password;
-            IAuth_Entity auth_EntityFromUser = new Auth_Entity(loginEntity, passwordEntity);
-            return auth_EntityFromUser;
-        }
+        //public IAuth_Entity GetDataFromUser(string login, string password)
+        //{
+        //    string loginEntity = login;
+        //    string passwordEntity = password;
+        //    IAuth_Entity auth_EntityFromUser = new Auth_Entity(loginEntity, passwordEntity);
+        //    return auth_EntityFromUser;
+        //}
     }
 }

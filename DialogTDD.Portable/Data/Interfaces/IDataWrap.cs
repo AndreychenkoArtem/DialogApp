@@ -6,5 +6,6 @@ namespace DialogTDD.Portable.Data.Interfaces
 {
     public interface IDataWrap
     {
+        //int GetCount();
     }
 }

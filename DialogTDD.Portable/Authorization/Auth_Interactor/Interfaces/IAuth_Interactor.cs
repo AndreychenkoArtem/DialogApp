@@ -10,7 +10,7 @@ namespace DialogTDD.Portable.Authorization.Auth_Interactor.Interfaces
         void SignInPressed(string login, string password); //Test+
         void RegistrationPressed(); //Test+
 
-        IAuth_Entity GetDataFromUser(string login, string password);
+       // IAuth_Entity GetDataFromUser(string login, string password);
 
     }
 }

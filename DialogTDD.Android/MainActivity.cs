@@ -12,6 +12,7 @@ using DialogTDD.Portable.Authorization.Auth_Presenter;
 using DialogTDD.Android.Views;
 using DialogTDD.Portable.Authorization.Auth_Interactor.Interfaces;
 using DialogTDD.Portable.Authorization.Auth_Interactor;
+using Android;
 
 namespace DialogTDD.Android
 {
