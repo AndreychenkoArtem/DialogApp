@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{51803DA5-0338-4133-AC04-32BFA458CDF8}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="DialogTDD.IOS/Router/IOSRouter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../Library/Frameworks/Xamarin.iOS.framework/Versions/11.10.1.178/lib/msbuild/iOS/Xamarin.iOS.Common.targets">
     <Files>
       <File FileName="DialogTDD.IOS/Main.storyboard" />
-      <File FileName="DialogTDD.IOS/ViewController.cs" Line="25" Column="9" />
-      <File FileName="DialogTDD.IOS/RegistrationViewController.cs" Line="1" Column="1" />
-      <File FileName="DialogTDD.IOS/Router/IOSRouter.cs" Line="33" Column="2" />
+      <File FileName="DialogTDD.IOS/ViewController.cs" Line="25" Column="1" />
+      <File FileName="DialogTDD.IOS/ChatViewController.cs" Line="11" Column="2" />
+      <File FileName="DialogTDD.IOS/Cells/MyCollectionViewCell.cs" Line="1" Column="1" />
+      <File FileName="../../../../Library/Frameworks/Xamarin.iOS.framework/Versions/11.10.1.178/lib/msbuild/iOS/Xamarin.iOS.Common.targets" Line="644" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

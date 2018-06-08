@@ -12,7 +12,7 @@ namespace DialogTDD.Portable.GoogleSearch
     public class RequestToServer
     {
         string result;
-        public string apiKey= "f3efcf782acf45419192789d612eef77";
+        public string apiKey = "f3efcf782acf45419192789d612eef77";
         private IMainViewNews _view;
 
         public RequestToServer(IMainViewNews view)
@@ -32,7 +32,7 @@ namespace DialogTDD.Portable.GoogleSearch
 
         private async Task<string> GetNewsByUrl(string q)
         {
-            string url = string.Format("https://newsapi.org/v2/top-headlines?sources=bbc-sport&q={0}&apiKey={1}", q, apiKey); 
+            string url = string.Format("https://newsapi.org/v2/top-headlines?sources=bbc-sport&q={0}&apiKey={1}", q, apiKey);
 
             using (var client = new HttpClient())
             {
@@ -49,7 +49,7 @@ namespace DialogTDD.Portable.GoogleSearch
             BBCNews objectBBCNews = JsonConvert.DeserializeObject<BBCNews>(result);
             return objectBBCNews;
         }
-        
+
 
 
 

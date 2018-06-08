@@ -184,24 +184,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1222" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="30" y="60" width="354" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="textColor" colorSpace="calibratedRGB" red="0.984313725490196" green="0.10196078431372549" blue="0.10196078431372549" alpha="1"/>
-                                <color key="highlightedColor" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="1"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="3209" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" ambiguous="YES">
+                                <rect key="frame" x="20" y="90" width="374" height="641"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3211">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text" borderStyle="roundedRect" minimumFontSize="17" id="3580" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="31" width="150" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <constraints>
-                                    <constraint id="1226" firstItem="1222" firstAttribute="height" constant="20"/>
+                                    <constraint id="3583" firstItem="3580" firstAttribute="width" constant="150"/>
                                 </constraints>
-                            </label>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3584" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="314" y="31" width="70" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <constraints>
+                                    <constraint id="3587" firstItem="3584" firstAttribute="width" constant="70"/>
+                                </constraints>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint id="1223" firstItem="1222" firstAttribute="top" secondItem="1208" secondAttribute="bottom" constant="40"/>
-                            <constraint id="1224" firstItem="1212" firstAttribute="trailingMargin" secondItem="1222" secondAttribute="trailing" constant="10"/>
-                            <constraint id="1225" firstItem="1222" firstAttribute="leading" secondItem="1212" secondAttribute="leadingMargin" constant="10"/>
+                            <constraint id="3213" firstItem="3209" firstAttribute="leading" secondItem="1212" secondAttribute="leadingMargin"/>
+                            <constraint id="3214" firstItem="1212" firstAttribute="trailingMargin" secondItem="3209" secondAttribute="trailing"/>
+                            <constraint id="3215" firstItem="1209" firstAttribute="top" secondItem="3209" secondAttribute="bottom" constant="5"/>
+                            <constraint id="3581" firstItem="3580" firstAttribute="leading" secondItem="1212" secondAttribute="leadingMargin"/>
+                            <constraint id="3582" firstItem="3580" firstAttribute="top" secondItem="1208" secondAttribute="bottom" constant="11"/>
+                            <constraint id="3585" firstItem="1212" firstAttribute="trailingMargin" secondItem="3584" secondAttribute="trailing" constant="10"/>
+                            <constraint id="3586" firstItem="3584" firstAttribute="top" secondItem="1208" secondAttribute="bottom" constant="11"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="_chatView" destination="1212" id="name-outlet-1212"/>
+                        <outlet property="_myCollectionView" destination="3209" id="name-outlet-3209"/>
+                        <outlet property="_searchTextField" destination="3580" id="name-outlet-3580"/>
+                        <outlet property="searchButton" destination="3587" id="name-outlet-3587"/>
+                        <outlet property="_btnSearch" destination="3584" id="name-outlet-3584"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1213" userLabel="First Responder" sceneMemberID="firstResponder"/>
